@@ -1,4 +1,0 @@
-
-
-class MutationAndPopulationChoose:
-    pass

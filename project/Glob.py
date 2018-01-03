@@ -25,3 +25,16 @@ def fitnessFunction(indexes, populationInfo):
             return -1
         value += populationInfo.objectList[i][1]
     return value
+
+
+def fitnessComparator(populationInfo):
+    def compare(x, y):
+        xFitness = fitnessFunction(x.calculateIndexes(), populationInfo)
+        yFitness = fitnessFunction(y.calculateIndexes(), populationInfo)
+        if  xFitness< yFitness:
+            return -1
+        elif xFitness > yFitness:
+            return 1
+        else:
+            return 0
+    return compare

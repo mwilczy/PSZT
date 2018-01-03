@@ -21,14 +21,14 @@ class Population:
         totalCount = 0
         for singleChromosome in self.chromosomePopulation:
             chromosomeFitness = fitnessFunction(singleChromosome.calculateIndexes(), self.populationInfo)
-            if singleChromosome in repeatCount:
+            if chromosomeFitness in repeatCount:
                 repeatCount[chromosomeFitness] += 1
             else:
                 repeatCount[chromosomeFitness] = 0
             totalCount += 1
 
         for fitness, count in repeatCount.items():
-            if count/totalCount > 0.9:
+            if float(count)/float(totalCount) > 0.9:
                 return False
 
         return True

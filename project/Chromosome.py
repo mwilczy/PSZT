@@ -12,6 +12,9 @@ class Chromosome:
 
     def putItemIndex(self, index):
         self.chromeArray[int(index/8)] |= (128 >> (index % 8))
+		
+    def removeItemIndex(self, index):
+        self.chromeArray[int(index/8)] &= ~(128 >> (index % 8))
 
     def calculateIndexes(self):
         calculatedIndexes = []
